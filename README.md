@@ -1,8 +1,14 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b30ed378-58d0-4538-829f-315cdcb2f63c/deploy-status)](https://app.netlify.com/sites/vigorous-lalande-856f75/deploys)
+
+[View the live version](https://vigorous-lalande-856f75.netlify.app/)
+
+## Intro
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Originally [forked](https://github.com/RyukyuColin/nextjs-starter-app) from [mschwarzmueller](https://github.com/mschwarzmueller/nextjs-course-code) and followed his [simple tutorial](https://youtu.be/MFuwkrseXVE) to build out some CRUD. I continued development by implementing a refactored MongoDB integration along with data model isolation.
 
-Purpose of this project is to test the capabilities of NextJS for future development on other projects.
+Purpose of this project is to test the capabilities of Next.js for future development on other projects.
 
 ## Getting Started
 
@@ -37,4 +43,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out [Vercel's Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Netlify
+
+Netlify is another platform that accommodates seamless Next.js deployments.
+
+Check out [Netlify's Next.js deployment documentation](https://www.netlify.com/blog/2020/11/30/how-to-deploy-next.js-sites-to-netlify/) for more details.
