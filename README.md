@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Originally forked from [mschwarzmueller](https://github.com/mschwarzmueller/nextjs-course-code) and followed his [simple tutorial](https://youtu.be/MFuwkrseXVE) to build out some CRUD. I continued development by implementing a refactored MongoDB integration along with data model isolation.
+Originally [forked](https://github.com/RyukyuColin/nextjs-starter-app) from [mschwarzmueller](https://github.com/mschwarzmueller/nextjs-course-code) and followed his [simple tutorial](https://youtu.be/MFuwkrseXVE) to build out some CRUD. I continued development by implementing a refactored MongoDB integration along with data model isolation.
 
 Purpose of this project is to test the capabilities of NextJS for future development on other projects.
 
