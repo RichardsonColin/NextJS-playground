@@ -28,7 +28,7 @@ export async function getStaticPaths() {
   const meetups = await meetupModel.fetchAll({}, { _id: 1 });
 
   return {
-    fallback: process.env.NODE_ENV === 'development' ? false : 'blocking',
+    fallback: process.env['fallback'],
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
@@ -40,7 +40,7 @@ export async function getStaticProps(context) {
     ObjectId.isValid(meetupId) &&
     (await meetupModel.fetchOne({ _id: ObjectId(meetupId) }));
 
-  // return 404 on invalid ID or empty db query
+  // return 404 on invalid ID param or empty db query
   if (!meetupData) {
     return {
       notFound: true,
