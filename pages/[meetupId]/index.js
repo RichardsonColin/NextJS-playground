@@ -5,7 +5,7 @@ import meetupModel from '../../models/meetup';
 import MeetupDetail from '../../components/meetups/MeetupDetail';
 
 function MeetupDetailsPage(props) {
-  const { title, image, address, description } = props.meetupData;
+  const { title, image, address, description } = props.meetupData || {};
 
   return (
     <>
@@ -36,8 +36,16 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
-  // fetch details for a single meetup
-  const meetupData = await meetupModel.fetchOne({ _id: ObjectId(meetupId) });
+  const meetupData =
+    ObjectId.isValid(meetupId) &&
+    (await meetupModel.fetchOne({ _id: ObjectId(meetupId) }));
+
+  // return 404 on invalid ID or empty db query
+  if (!meetupData) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
