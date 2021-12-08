@@ -1,5 +1,10 @@
 import connectToDatabase from '../lib/database/index';
 
+/*
+  TODO:
+  - add try/catch
+*/
+
 const COLLECTION = 'meetups';
 
 const fetchOne = async (query = {}, options = {}) => {
