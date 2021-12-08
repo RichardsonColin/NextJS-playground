@@ -3,7 +3,8 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 const DB_URI = `mongodb+srv://${process.env['DB_USER']}:${process.env['DB_PASSWORD']}${process.env['DB_HOST']}/${process.env['DB_NAME']}?${process.env['DB_OPTIONS']}`;
 const DB_NAME = process.env['DB_NAME'];
 const fallback = process.env.NODE_ENV === 'development' ? false : 'blocking';
-const domains = ['i.imgur.com'];
+const imgDomains = ['i.imgur.com'];
+const imgFormats = ['image/avif', 'image/webp'];
 
 module.exports = (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
@@ -14,7 +15,8 @@ module.exports = (phase) => {
         fallback,
       },
       images: {
-        domains,
+        domains: imgDomains,
+        formats: imgFormats,
       },
     };
   }
@@ -26,7 +28,8 @@ module.exports = (phase) => {
       fallback,
     },
     images: {
-      domains,
+      domains: imgDomains,
+      formats: imgFormats,
     },
   };
 };
