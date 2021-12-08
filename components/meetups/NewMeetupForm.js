@@ -1,9 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import Card from '../ui/Card';
 import classes from './NewMeetupForm.module.css';
 
 function NewMeetupForm(props) {
+  const [disabled, setDisabled] = useState(false);
   const titleInputRef = useRef();
   const imageInputRef = useRef();
   const addressInputRef = useRef();
@@ -11,6 +12,8 @@ function NewMeetupForm(props) {
 
   function submitHandler(event) {
     event.preventDefault();
+    // disable multiple submits
+    setDisabled(true);
 
     const enteredTitle = titleInputRef.current.value;
     const enteredImage = imageInputRef.current.value;
@@ -52,7 +55,7 @@ function NewMeetupForm(props) {
           ></textarea>
         </div>
         <div className={classes.actions}>
-          <button>Add Meetup</button>
+          <button disabled={disabled}>Add Meetup</button>
         </div>
       </form>
     </Card>
