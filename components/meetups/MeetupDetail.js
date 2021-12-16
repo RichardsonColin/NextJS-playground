@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import classes from './MeetupDetail.module.css';
 
 function MeetupDetail(props) {
@@ -5,7 +6,7 @@ function MeetupDetail(props) {
     <section className={classes.detail}>
       <div>
         <img src={props.image} alt={props.title} />
-        {/* <Image
+        <Image
           src={props.image}
           alt={props.title}
           quality={90}
@@ -13,7 +14,7 @@ function MeetupDetail(props) {
           objectFit='cover'
           placeholder='blur'
           blurDataURL={props.dataUrl}
-        /> */}
+        />
       </div>
       <h1>{props.title}</h1>
       <address>{props.address}</address>
