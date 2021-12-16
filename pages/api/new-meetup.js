@@ -1,5 +1,5 @@
 import meetupModel from '../../models/meetup';
-import imgur from '../../lib/imgur/api';
+
 /*
   Path:
     /api/new-meetup
@@ -13,8 +13,6 @@ async function handler(req, res) {
     if (req.method === 'POST') {
       // handle req
       const data = req.body;
-      // upload to imgur for imgur link and update data
-      data.image = (await imgur.upload(data.image)).link;
       // create new meetup
       await meetupModel.createOne(data);
       // send response
@@ -22,7 +20,7 @@ async function handler(req, res) {
     }
   } catch (error) {
     // temp error handling
-    console.log('Method: ', req.method, error);
+    console.error(`HTTP Method: ${req.method} --- ${error}`);
     // send response
     res.status(500).json({ message: 'Internal server error' });
   }

@@ -16,9 +16,10 @@ export async function getStaticProps() {
         title: meetup.title,
         address: meetup.address,
         image: meetup.image,
+        dataUrl: meetup.dataUrl,
       })),
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 }
 export default HomePage;
