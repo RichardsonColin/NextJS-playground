@@ -34,7 +34,8 @@ const createOne = async (data) => {
     const collection = db.collection(COLLECTION);
     // const preparedData = await prepareDataForCreate(data);
     // const result = await collection.insertOne(preparedData);
-    return result;
+    // return result;
+    return '';
   } catch (error) {
     console.error(error);
   }
