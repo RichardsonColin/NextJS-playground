@@ -15,7 +15,7 @@
   compress = true
 
 [context.production]
-  environment = { NODE_VERSION = "^16.3.0", NPM_VERSION = "^8.1.4" }
+  environment = { NODE_VERSION = "16.3.0", NPM_VERSION = "8.1.4" }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
