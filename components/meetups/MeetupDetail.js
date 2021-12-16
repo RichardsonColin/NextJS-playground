@@ -11,8 +11,8 @@ function MeetupDetail(props) {
           quality={100}
           layout='fill'
           objectFit='cover'
-          placeholder='blur'
-          blurDataURL={props.dataUrl}
+          // placeholder='blur'
+          // blurDataURL={props.dataUrl}
         />
       </div>
       <h1>{props.title}</h1>

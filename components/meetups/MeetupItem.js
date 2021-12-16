@@ -21,8 +21,8 @@ function MeetupItem(props) {
             quality={100}
             layout='fill'
             objectFit='cover'
-            placeholder='blur'
-            blurDataURL={props.dataUrl}
+            // placeholder='blur'
+            // blurDataURL={props.dataUrl}
           />
         </div>
         <div className={classes.content}>
