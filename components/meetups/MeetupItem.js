@@ -22,7 +22,7 @@ function MeetupItem(props) {
             layout='fill'
             objectFit='cover'
             placeholder='blur'
-            blurDataURL={props.image}
+            blurDataURL={props.dataUrl}
           />
         </div>
         <div className={classes.content}>

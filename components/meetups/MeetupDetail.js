@@ -12,7 +12,7 @@ function MeetupDetail(props) {
           layout='fill'
           objectFit='cover'
           placeholder='blur'
-          blurDataURL={props.image}
+          blurDataURL={props.dataUrl}
         />
       </div>
       <h1>{props.title}</h1>

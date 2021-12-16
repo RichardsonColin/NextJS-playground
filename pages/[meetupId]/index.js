@@ -5,19 +5,20 @@ import meetupModel from '../../models/meetup';
 import MeetupDetail from '../../components/meetups/MeetupDetail';
 
 function MeetupDetailsPage(props) {
-  const { title, image, address, description } = props.meetupData || {};
+  const meetupData = props.meetupData || {};
 
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name='description' content={description} />
+        <title>{meetupData.title}</title>
+        <meta name='description' content={meetupData.description} />
       </Head>
       <MeetupDetail
-        title={title}
-        image={image}
-        address={address}
-        description={description}
+        title={meetupData.title}
+        image={meetupData.image}
+        dataUrl={meetupData.dataUrl}
+        address={meetupData.address}
+        description={meetupData.description}
       />
     </>
   );
@@ -52,8 +53,9 @@ export async function getStaticProps(context) {
       meetupData: {
         id: meetupData._id.toString(),
         title: meetupData.title,
-        image: meetupData.image,
         address: meetupData.address,
+        image: meetupData.image,
+        dataUrl: meetupData.dataUrl,
         description: meetupData.description,
       },
     },
