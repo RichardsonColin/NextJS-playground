@@ -31,6 +31,5 @@ module.exports = (phase) => {
       domains: imgDomains,
       formats: imgFormats,
     },
-    swcMinify: false,
   };
 };
