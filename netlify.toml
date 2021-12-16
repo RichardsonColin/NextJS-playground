@@ -1,13 +1,14 @@
 [build]
   command = "npm run build"
   publish = ".next"
+
 [build.processing]
   skip_processing = false
 [build.processing.css]
-  bundle = true
+  bundle = false
   minify = true
 [build.processing.js]
-  bundle = true
+  bundle = false
   minify = true
 [build.processing.html]
   pretty_urls = true
@@ -16,6 +17,15 @@
 
 [context.production]
   environment = { NODE_VERSION = "16.3.0", NPM_VERSION = "8.1.4" }
+
+[[redirects]]
+  from = "/"
+  to = "/"
+  status = 200
+[[redirects]]
+  from = "/_next/data/*"
+  to = "/_next/data/:splat"
+  status = 200
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
