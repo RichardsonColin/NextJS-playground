@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import MainNavigation from './MainNavigation';
 import classes from './Layout.module.css';
 
@@ -9,5 +10,9 @@ function Layout(props) {
     </div>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Layout;

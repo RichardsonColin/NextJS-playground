@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Card from '../ui/Card';
+
 import classes from './NewMeetupForm.module.css';
 
 function NewMeetupForm(props) {
@@ -12,7 +14,7 @@ function NewMeetupForm(props) {
 
   function submitHandler(event) {
     event.preventDefault();
-    // disable multiple submits
+    // prevent multiple submits
     setDisabled(true);
 
     const enteredTitle = titleInputRef.current.value;
@@ -61,5 +63,9 @@ function NewMeetupForm(props) {
     </Card>
   );
 }
+
+NewMeetupForm.propTypes = {
+  onAddMeetup: PropTypes.func.isRequired,
+};
 
 export default NewMeetupForm;
