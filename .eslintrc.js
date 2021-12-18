@@ -1,17 +1,22 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   env: {
-    commonjs: true,
-    es6: true,
-    node: true,
+    browser: true,
+    es2021: true,
   },
-  extends: 'eslint:recommended',
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
+  extends: ['plugin:react/recommended', 'plugin:react/jsx-runtime'],
   parserOptions: {
     ecmaVersion: 11,
+    sourceType: 'module',
+    requireConfigFile: false,
+    babelOptions: {
+      plugins: ['@babel/plugin-syntax-jsx'],
+    },
   },
   rules: {},
 };
