@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
+
 import MeetupItem from './MeetupItem';
+
 import classes from './MeetupList.module.css';
 
 function MeetupList(props) {
@@ -17,5 +20,9 @@ function MeetupList(props) {
     </ul>
   );
 }
+
+MeetupList.propTypes = {
+  meetups: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MeetupList;

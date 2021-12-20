@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
+
 import meetupModel from '../models/meetup';
+
 import MeetupList from '../components/meetups/MeetupList';
 
 function HomePage(props) {
@@ -22,4 +25,9 @@ export async function getStaticProps() {
     revalidate: 60,
   };
 }
+
+HomePage.propTypes = {
+  meetups: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
 export default HomePage;

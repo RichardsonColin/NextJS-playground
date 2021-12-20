@@ -15,13 +15,13 @@
 [build.processing.images]
   compress = true
 
-[context.production]
-  environment = { NODE_VERSION = "16.3.0", NPM_VERSION = "8.1.4" }
+[functions]
+  directory = "functions/"
+  included_files = ["sharp/*"]
 
-[[redirects]]
-  from = "/"
-  to = "/"
-  status = 200
+[context.production]
+  environment = { NODE_VERSION = "14", AWS_LAMBDA_JS_RUNTIME = "nodejs14.x" }
+
 [[redirects]]
   from = "/_next/data/*"
   to = "/_next/data/:splat"
@@ -29,3 +29,5 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"

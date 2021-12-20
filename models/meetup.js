@@ -50,33 +50,32 @@ const prepareDataForCreate = async (initialData) => {
   if (data && 'image' in data) {
     // upload to imgur for imgur link and update data
     data.image = (await imgur.upload(data.image)).link;
+
+    // resize image using a lambda function
+    const url = `${process.env.HOST_URL}${process.env.FUNCTIONS_DIR}/sharp`;
+    console.log(url);
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        width: 100,
+        height: 100,
+        url: data.image,
+      }),
+    });
+    const buffer = await response.buffer();
     // generate a data url from the image
-    data.dataUrl = await generateImageDataUrl(data.image, (buffer) =>
-      sharp.resizeImage(buffer, 100, 100)
+    data.dataUrl = generateImageDataUrl(
+      buffer,
+      response.headers.get('content-type')
     );
   }
-
+  console.log(data);
   return data;
 };
 
-const fetchImage = async (imageUrl) => {
-  try {
-    const response = await fetch(imageUrl);
-
-    if (response.ok) {
-      return response;
-    } else {
-      throw new Error(response);
-    }
-  } catch (error) {
-    console.error(`Meetup fetchImage: ${error}`);
-    return false;
-  }
-};
-
 // generates a minimal base64 data url from an image
-const generateImageDataUrl = async (imageUrl, callback) => {
-  const acceptedMIMETypes = [
+const generateImageDataUrl = (buffer, mimeType) => {
+  const acceptedMimeTypes = [
     'apng',
     'avif',
     'gif',
@@ -86,17 +85,8 @@ const generateImageDataUrl = async (imageUrl, callback) => {
     'webp',
   ];
   try {
-    const response = await fetchImage(imageUrl);
-    const contentType = response.headers.get('content-type');
-
-    if (contentType && acceptedMIMETypes.includes(contentType.split('/')[1])) {
-      let buffer = await response.buffer();
-
-      if (callback && typeof callback === 'function') {
-        buffer = await callback(buffer);
-      }
-
-      return `data:${contentType};base64,${buffer.toString('base64')}`;
+    if (mimeType && acceptedMimeTypes.includes(mimeType.split('/')[1])) {
+      return `data:${mimeType};base64,${buffer.toString('base64')}`;
     } else {
       throw new Error(`Can't generate a data URL from an improper file type.`);
     }

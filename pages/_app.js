@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
+
 import Head from 'next/head';
+
 import Layout from '../components/layout/Layout';
 
 import '../styles/globals.css';
@@ -18,5 +21,10 @@ function MyApp({ Component, pageProps }) {
     </Layout>
   );
 }
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
+};
 
 export default MyApp;
