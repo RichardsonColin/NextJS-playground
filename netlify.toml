@@ -2,6 +2,15 @@
   command = "npm run build"
   publish = ".next"
 
+[context.production]
+  command = "yarn run build"
+
+[context.deploy-preview]
+  command = "yarn run build-preview"
+
+[context.branch-deploy]
+  command = "yarn run build-preview"
+
 [build.processing]
   skip_processing = false
 [build.processing.css]
