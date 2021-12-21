@@ -49,6 +49,7 @@ const prepareDataForCreate = async (initialData) => {
   const data = { ...initialData };
 
   if (data && 'image' in data) {
+    console.log('Uploading to Imgur');
     // upload to imgur for imgur link and update data
     data.image = (await imgur.upload(data.image)).link;
 
