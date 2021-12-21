@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"
   publish = ".next"
+  environment = { NODE_VERSION = "14", AWS_LAMBDA_JS_RUNTIME = "nodejs14.x" }
 
 [context.production]
   command = "yarn run build"
@@ -27,9 +27,6 @@
 [functions]
   directory = "functions/"
   included_files = ["sharp/*"]
-
-[context.production]
-  environment = { NODE_VERSION = "14", AWS_LAMBDA_JS_RUNTIME = "nodejs14.x" }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
