@@ -14,6 +14,7 @@ async function handler(req, res) {
       // handle req
       const data = req.body;
       // create new meetup
+      console.log(data);
       await meetupModel.createOne(data);
       // send response
       res.status(201).json({ message: 'Meetup created' });
