@@ -2,7 +2,6 @@ import connectToDatabase from '../lib/database/index';
 
 // libs
 import imgur from '../lib/imgur/api';
-import sharp from '../lib/sharp/api';
 
 /*
   TODO:
