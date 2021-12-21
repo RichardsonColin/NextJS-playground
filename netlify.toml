@@ -6,10 +6,7 @@
   command = "yarn run build"
 
 [context.deploy-preview]
-  command = "yarn run build-preview"
-
-[context.branch-deploy]
-  command = "yarn run build-preview"
+  command = "yarn run build"
 
 [build.processing]
   skip_processing = false
