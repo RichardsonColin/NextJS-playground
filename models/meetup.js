@@ -2,7 +2,6 @@ import connectToDatabase from '../lib/database/index';
 
 // libs
 import imgur from '../lib/imgur/api';
-import sharp from '../lib/sharp/api';
 
 /*
   TODO:
@@ -29,6 +28,7 @@ const fetchAll = async (query = {}, options = {}) => {
 };
 
 const createOne = async (data) => {
+  console.log('Start createOne');
   try {
     const { db } = await connectToDatabase();
     const collection = db.collection(COLLECTION);
@@ -45,9 +45,11 @@ const createOne = async (data) => {
 */
 
 const prepareDataForCreate = async (initialData) => {
+  console.log('Start prepare');
   const data = { ...initialData };
 
   if (data && 'image' in data) {
+    console.log('Uploading to Imgur');
     // upload to imgur for imgur link and update data
     data.image = (await imgur.upload(data.image)).link;
 
