@@ -26,7 +26,6 @@
 
 [functions]
   directory = "functions/"
-  included_files = ["sharp/*"]
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
