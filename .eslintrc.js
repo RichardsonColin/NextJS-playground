@@ -10,8 +10,8 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
     'plugin:@next/next/recommended',
+    'plugin:react/recommended',
     'plugin:react/jsx-runtime',
   ],
   parserOptions: {
@@ -19,7 +19,7 @@ module.exports = {
     sourceType: 'module',
     requireConfigFile: false,
     babelOptions: {
-      plugins: ['@babel/plugin-syntax-jsx'],
+      plugins: ['@babel/plugin-syntax-jsx', 'babel-plugin-styled-components'],
     },
   },
   rules: {},
