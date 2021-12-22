@@ -9,7 +9,6 @@ function MeetupDetail(props) {
   return (
     <section className={classes.detail}>
       <div>
-        <img src={image} alt={title} />
         <Image
           src={image}
           alt={title}
