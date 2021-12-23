@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
-
+// DB model
 import meetupModel from '../models/meetup';
-
+// components
 import MeetupList from '../components/meetups/MeetupList';
 
-function HomePage(props) {
+HomePage.propTypes = {
+  meetups: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+export default function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
 }
 
@@ -25,9 +29,3 @@ export async function getStaticProps() {
     revalidate: 60,
   };
 }
-
-HomePage.propTypes = {
-  meetups: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
-
-export default HomePage;

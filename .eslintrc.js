@@ -9,13 +9,17 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'plugin:react/jsx-runtime'],
+  extends: [
+    'plugin:@next/next/recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+  ],
   parserOptions: {
     ecmaVersion: 11,
     sourceType: 'module',
     requireConfigFile: false,
     babelOptions: {
-      plugins: ['@babel/plugin-syntax-jsx'],
+      plugins: ['@babel/plugin-syntax-jsx', 'babel-plugin-styled-components'],
     },
   },
   rules: {},

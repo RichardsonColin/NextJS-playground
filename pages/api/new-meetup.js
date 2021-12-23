@@ -8,23 +8,24 @@ import meetupModel from '../../models/meetup';
     POST
 */
 
-async function handler(req, res) {
+export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      // handle req
+      // handle request
       const data = req.body;
       // create new meetup
-      console.log(data);
-      await meetupModel.createOne(data);
+      const result = await meetupModel.createOne(data);
       // send response
-      res.status(201).json({ message: 'Meetup created' });
+      if (result) {
+        res.status(201).json({ status: 'success', message: 'Meetup created' });
+      } else {
+        res.status(500).json({ status: 'error', message: 'Please try again' });
+      }
     }
   } catch (error) {
     // temp error handling
     console.error(`HTTP Method: ${req.method} --- ${error}`);
     // send response
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ status: 'error', message: 'Internal server error' });
   }
 }
-
-export default handler;

@@ -13,18 +13,22 @@ const fallback = process.env.NODE_ENV === 'development' ? false : 'blocking';
 const imgDomains = ['i.imgur.com'];
 const imgFormats = ['image/avif', 'image/webp'];
 
-module.exports = () => {
-  return {
-    env: {
-      DB_URI,
-      DB_NAME,
-      fallback,
-      HOST_URL,
-      FUNCTIONS_DIR,
-    },
-    images: {
-      domains: imgDomains,
-      formats: imgFormats,
-    },
-  };
+module.exports = {
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    // ssr and displayName are configured by default
+    styledComponents: true,
+  },
+  env: {
+    DB_URI,
+    DB_NAME,
+    fallback,
+    HOST_URL,
+    FUNCTIONS_DIR,
+  },
+  images: {
+    domains: imgDomains,
+    formats: imgFormats,
+  },
 };

@@ -1,12 +1,16 @@
-import PropTypes from 'prop-types';
-
 import Head from 'next/head';
-
+import PropTypes from 'prop-types';
+// components
 import Layout from '../components/layout/Layout';
-
+// global styles
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
+};
+
+export default function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <Head>
@@ -21,10 +25,3 @@ function MyApp({ Component, pageProps }) {
     </Layout>
   );
 }
-
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired,
-};
-
-export default MyApp;

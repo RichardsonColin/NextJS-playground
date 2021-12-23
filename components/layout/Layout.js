@@ -1,18 +1,24 @@
 import PropTypes from 'prop-types';
-import MainNavigation from './MainNavigation';
-import classes from './Layout.module.css';
-
-function Layout(props) {
-  return (
-    <div>
-      <MainNavigation />
-      <main className={classes.main}>{props.children}</main>
-    </div>
-  );
-}
+// components
+import Navigation from './Navigation';
+// style
+import styled from 'styled-components';
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Layout;
+export default function Layout(props) {
+  return (
+    <>
+      <Navigation />
+      <Main>{props.children}</Main>
+    </>
+  );
+}
+
+const Main = styled.main`
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 40rem;
+`;
