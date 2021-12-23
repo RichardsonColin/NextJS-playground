@@ -1,12 +1,16 @@
 import PropTypes from 'prop-types';
-
+// components
 import MeetupItem from './MeetupItem';
+// style
+import styled from 'styled-components';
 
-import classes from './MeetupList.module.css';
+MeetupList.propTypes = {
+  meetups: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
-function MeetupList(props) {
+export default function MeetupList(props) {
   return (
-    <ul className={classes.list}>
+    <List>
       {props.meetups.map((meetup) => (
         <MeetupItem
           key={meetup.id}
@@ -17,12 +21,12 @@ function MeetupList(props) {
           address={meetup.address}
         />
       ))}
-    </ul>
+    </List>
   );
 }
 
-MeetupList.propTypes = {
-  meetups: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
-
-export default MeetupList;
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;

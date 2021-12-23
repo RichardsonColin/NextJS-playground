@@ -1,30 +1,7 @@
-import PropTypes from 'prop-types';
-
 import Image from 'next/image';
-
-import classes from './MeetupDetail.module.css';
-
-function MeetupDetail(props) {
-  const { title, image, dataUrl, address, description } = props;
-  return (
-    <section className={classes.detail}>
-      <div>
-        <Image
-          src={image}
-          alt={title}
-          quality={90}
-          layout='fill'
-          objectFit='cover'
-          placeholder='blur'
-          blurDataURL={dataUrl}
-        />
-      </div>
-      <h1>{title}</h1>
-      <address>{address}</address>
-      <p>{description}</p>
-    </section>
-  );
-}
+import PropTypes from 'prop-types';
+// style
+import styled from 'styled-components';
 
 MeetupDetail.propTypes = {
   title: PropTypes.string.isRequired,
@@ -34,4 +11,39 @@ MeetupDetail.propTypes = {
   description: PropTypes.string.isRequired,
 };
 
-export default MeetupDetail;
+export default function MeetupDetail(props) {
+  const { title, image, dataUrl, address, description } = props;
+  return (
+    <Section>
+      <Wrapper>
+        <StyledImage
+          src={image}
+          alt={title}
+          quality={90}
+          layout='fill'
+          objectFit='cover'
+          placeholder='blur'
+          blurDataURL={dataUrl}
+        />
+      </Wrapper>
+      <h1>{title}</h1>
+      <address>{address}</address>
+      <p>{description}</p>
+    </Section>
+  );
+}
+
+const Section = styled.section`
+  text-align: center;
+`;
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+`;
+const StyledImage = styled(Image)`
+  width: 100%;
+`;
