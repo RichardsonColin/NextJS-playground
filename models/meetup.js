@@ -35,8 +35,8 @@ const createOne = async (data) => {
 
     // temp handling until proper MongoDB validations are set up
     if (preparedData.dataUrl) {
-      const { result } = await collection.insertOne(preparedData);
-      return result.ok;
+      const result = await collection.insertOne(preparedData);
+      return result.acknowledged;
     }
   } catch (error) {
     console.error(error);
