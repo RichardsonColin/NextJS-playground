@@ -1,13 +1,16 @@
-import PropTypes from 'prop-types';
-
 import Head from 'next/head';
-
+import PropTypes from 'prop-types';
+// DB Model
 import { ObjectId } from 'mongodb';
 import meetupModel from '../../models/meetup';
-
+// components
 import MeetupDetail from '../../components/meetups/MeetupDetail';
 
-function MeetupDetailsPage(props) {
+MeetupDetailsPage.propTypes = {
+  meetupData: PropTypes.object.isRequired,
+};
+
+export default function MeetupDetailsPage(props) {
   const { title, image, dataUrl, address, description } = props.meetupData;
 
   return (
@@ -64,9 +67,3 @@ export async function getStaticProps(context) {
     },
   };
 }
-
-MeetupDetailsPage.propTypes = {
-  meetupData: PropTypes.object.isRequired,
-};
-
-export default MeetupDetailsPage;
