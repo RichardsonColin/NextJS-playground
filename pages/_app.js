@@ -5,6 +5,13 @@ import Layout from '../components/layout/Layout';
 // global styles
 import '../styles/globals.css';
 
+// built-in metrics reports
+/*
+export function reportWebVitals(metric) {
+  console.log(metric);
+}
+*/
+
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.object.isRequired,
