@@ -28,13 +28,16 @@ const fetchAll = async (query = {}, options = {}) => {
 };
 
 const createOne = async (data) => {
-  console.log('Start createOne');
   try {
     const { db } = await connectToDatabase();
     const collection = db.collection(COLLECTION);
     const preparedData = await prepareDataForCreate(data);
-    const result = await collection.insertOne(preparedData);
-    return result;
+
+    // temp handling until proper MongoDB validations are set up
+    if (preparedData.dataUrl) {
+      const { result } = await collection.insertOne(preparedData);
+      return result.ok;
+    }
   } catch (error) {
     console.error(error);
   }
@@ -45,7 +48,6 @@ const createOne = async (data) => {
 */
 
 const prepareDataForCreate = async (initialData) => {
-  console.log('Start prepare');
   const data = { ...initialData };
 
   if (data && 'image' in data) {
