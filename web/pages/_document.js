@@ -36,10 +36,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>{this.props.styles}</Head>
+        <Head />
         <body>
           <Main />
-          <div id='toast' />
+          <div id='toast'></div>
           <NextScript />
         </body>
       </Html>
