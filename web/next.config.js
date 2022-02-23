@@ -9,8 +9,9 @@ const HOST_URL =
 const FUNCTIONS_DIR = process.env.SITE_NAME
   ? '/.netlify/functions'
   : '/functions';
+const SANITY_PROJECT_ID = process.env.SANITY_PROJECT_ID;
 const fallback = process.env.NODE_ENV === 'development' ? false : 'blocking';
-const imgDomains = ['i.imgur.com'];
+const imgDomains = ['i.imgur.com', 'cdn.sanity.io'];
 const imgFormats = ['image/avif', 'image/webp'];
 
 module.exports = {
@@ -23,6 +24,7 @@ module.exports = {
   env: {
     DB_URI,
     DB_NAME,
+    SANITY_PROJECT_ID,
     fallback,
     HOST_URL,
     FUNCTIONS_DIR,
