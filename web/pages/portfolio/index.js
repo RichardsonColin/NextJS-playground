@@ -37,7 +37,12 @@ function CustomImage({ image, layout, objectFit, quality, blur }) {
   }
 
   return (
-    <Image {...imageProps} layout={layout} objectFit={objectFit} quality={90} />
+    <Image
+      {...imageProps}
+      layout={layout}
+      objectFit={objectFit}
+      quality={quality}
+    />
   );
 }
 
